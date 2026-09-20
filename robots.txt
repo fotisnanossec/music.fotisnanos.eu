@@ -1,0 +1,18 @@
+# Crawling is ALLOWED on purpose. Do not change this to "Disallow: /".
+#
+# The page carries <meta name="robots" content="noindex, ...">. A crawler has to
+# fetch the page to read that tag. "Disallow: /" blocks the fetch, so the tag is
+# never seen, and a URL that has inbound links can still be listed as a bare result
+# with no title. Blocking crawling and removing from the index are opposite moves.
+#
+# Once Search Console reports zero indexed pages, "Disallow: /" becomes safe to add.
+# Not before.
+#
+# The og:/twitter: tags in index.html are unaffected. Link-preview scrapers
+# (WhatsApp, Signal, Instagram, Slack) ignore robots directives, so a link sent
+# by hand still renders a preview while the page stays out of search.
+
+User-agent: *
+Allow: /
+
+# No sitemap on purpose.
